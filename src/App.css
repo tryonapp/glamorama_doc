@@ -1,0 +1,154 @@
+.docs {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.sidebar-toggle {
+  background: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border: 0;
+  outline: 0;
+  padding: 15px;
+  text-align: center;
+  transition: opacity .3s ease;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.sidebar-toggle span {
+  background-color: #1C4E83;
+  display: block;
+  margin-bottom: 4px;
+  width: 16px;
+  height: 2px;
+}
+
+.docs-sidebar {
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+  color: #364149;
+  overflow-y: auto;
+  padding: 40px 0 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: transform .25s ease-out;
+  width: 300px;
+  z-index: 333;
+}
+
+.docs-sidebar.closed {
+  transform: translateX(-300px);
+}
+
+.docs-sidebar .sidebar-nav {
+  line-height: 2em;
+  padding-bottom: 40px;
+} 
+
+.docs-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 15px;
+}
+
+.docs-sidebar ul li {
+  list-style: none;
+  margin: 6px 0;
+  cursor: pointer;
+}
+
+.docs-sidebar ul li a {
+  border-bottom: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docs-sidebar ul li.active a {
+  border-right: 2px solid;
+  color: #1C4E83;
+  font-weight: 600;
+}
+
+.docs-sidebar ul li a:hover {
+  color: #1C4E83;
+  text-decoration: underline;
+}
+
+.docs-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 300px;
+  padding-top: 50px;
+  transition: left .25s ease;
+}
+
+.markdown-body {
+  position: relative;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 30px 15px 40px;
+}
+
+.markdown-body ul {
+  padding-left: 1.5rem;
+  line-height: 1.6rem;
+  word-spacing: .05rem;
+}
+
+.markdown-body code {
+  background-color: #F0F4FF;
+}
+
+.markdown-section>:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) code {
+  font-size: .8rem;
+}
+
+.markdown-body code {
+  border-radius: 2px;
+  color: #1C4E83;
+  margin: 0 2px;
+  padding: 3px 5px;
+  /* white-space: pre-wrap; */
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  display: block;
+  font-size: .8rem;
+  padding: 2.2em 5px;
+  line-height: inherit;
+  margin: 0 2px;
+  border-radius: 2px;
+  overflow-x: auto;
+  color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .docs-sidebar.closed {
+      transform: translateX(300px);
+  }
+  .docs-sidebar {
+      left: -300px;
+  }
+  .docs-content {
+      position: static;
+      max-width: 100vw;
+      padding-top: 20px;
+      transition: transform .25s ease;
+  }
+}
