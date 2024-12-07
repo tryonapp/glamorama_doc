@@ -5,11 +5,11 @@ import "./App.css";
 const App = () => {
   const sectionRefs = useRef({
     "docs-title": null,
-    "introduction": null,
+    introduction: null,
     "quick-start-guide": null,
     "create-try-on-task": null,
     "check-task-status": null,
-    "support": null,
+    support: null,
   });
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -22,13 +22,13 @@ const App = () => {
         if (ref) {
           const rect = ref.getBoundingClientRect();
           return (
-            (rect.top >= 0 && rect.top <= window.innerHeight / 2) || 
+            (rect.top >= 0 && rect.top <= window.innerHeight / 2) ||
             (rect.bottom >= 0 && rect.bottom <= window.innerHeight)
           );
         }
         return false;
       });
-    
+
       if (currentSection) {
         const index = getIndexById(currentSection);
         if (index !== null) {
@@ -36,19 +36,17 @@ const App = () => {
         }
       }
     };
-    
-  
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
   const handleClick = (index) => {
-    console.log(index)
+    console.log(index);
     setActiveIndex(index);
   };
 
@@ -363,21 +361,46 @@ Form-Data:
       `}
             </code>
           </pre>
-          <h2 id="support" ref={(el) => (sectionRefs.current["support"] = el)} style={{ marginTop: "100px" }}>
+          <h2
+            id="support"
+            ref={(el) => (sectionRefs.current["support"] = el)}
+            style={{ marginTop: "100px" }}
+          >
             <Link>
               <span>Support</span>
             </Link>
           </h2>
           <p>For further assistance, contact our Support Team.</p>
-          <ul>
+          <ul className="support-list">
             <li>
-              <Link></Link>
+              Linked:{" "}
+              <a
+                href="https://www.linkedin.com/company/glamorama-ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://www.linkedin.com/company/glamorama-ai
+              </a>
             </li>
             <li>
-              <Link></Link>
+              Instagram:{" "}
+              <a
+                href="https://www.instagram.com/glamorama_ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                glamorama.ai
+              </a>
             </li>
             <li>
-              <Link></Link>
+              Discord:{" "}
+              <a
+                href="https://discord.gg/aPUFmYYS"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://discord.gg/aPUFmYYS
+              </a>
             </li>
           </ul>
         </article>
